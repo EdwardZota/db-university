@@ -33,7 +33,7 @@ SELECT COUNT(`id`) AS `Numero_di_dipartimenti`
 FROM `departments`;
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
-SELECT `id`,`name` AS `Nome`,`surname` AS `Cognome`,`phone` AS `Numero_di_telefono`
+SELECT COUNT(`id`) AS `Numero di insegnanti senza numero di cellulare`
 FROM `teachers`
 WHERE `phone` IS NULL;
 
