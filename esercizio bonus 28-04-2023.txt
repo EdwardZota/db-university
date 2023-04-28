@@ -1,0 +1,34 @@
+Seleziona gli studenti che si chiamano “Rocco” o “Marina”
+SELECT `name` AS `Nome`,`surname` AS `Cognome`,`registration_number` AS `Codice_di_registrazione`
+FROM `students`
+WHERE`name`= 'Rocco' OR `name` = 'Marina';
+
+Seleziona gli studenti che hanno una mail di Gmail
+SELECT `name` AS `Nome`,`surname` AS `Cognome`,`registration_number` AS `Codice_di_registrazione`,`email`
+FROM `students`
+WHERE `email` LIKE '%gmail%';
+
+Seleziona gli studenti il cui cognome termina in “ini”
+SELECT `name` AS `Nome`,`surname` AS `Cognome`,`registration_number` AS `Codice_di_registrazione`
+FROM `students`
+WHERE `surname` LIKE '%ini';
+
+Quanti insegnanti hanno un telefono che finisce in 927 o contiene 279?
+SELECT COUNT(`id`) AS `N.di_prof`
+FROM `teachers`
+WHERE `phone` LIKE '%927'OR (REPLACE(phone,' ','')) LIKE '%279%';
+
+Quanti studenti hanno sostenuto l’esame con id=1?
+SELECT COUNT(`course_id`) AS `Gli_studenti_che_hanno_sostenuto_l'esame_con_id=1` 
+FROM `exams`
+WHERE `course_id` = 1;
+
+Quali esami sono stati sostenuti il 2020-09-04 e il 2020-02-07 tra le 14.00 e le 18.00 ?
+SELECT `id`,`date` AS `Data`,`hour` AS `Orario`
+FROM `exams`
+WHERE (`date` = '2020-09-04' OR `date` = '2020-02-07') AND (HOUR(`hour`) > 14 AND HOUR(`hour`) < 18);
+
+Quali dipartimenti rispondono telefonicamente dall’Italia?
+SELECT `name` AS `Nome_dipartimento`,`address` AS `Indirizzo`,`phone` AS `recapito_telefonico`
+FROM `departments`
+WHERE `phone` LIKE '+39%';
